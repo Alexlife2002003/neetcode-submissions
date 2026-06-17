@@ -1,17 +1,18 @@
 class Solution:
 
     def encode(self, strs: List[str]) -> str:
-        res=""
+        res =""
         for word in strs:
-            n=len(word)
-            res+=f"{n}#{word}"
+            res+=f"{len(word)}#{word}"
+        
         return res
 
     def decode(self, s: str) -> List[str]:
         res=[]
         left=0
         right=0
-        while right<len(s):
+
+        while right<len(s)-1:
             while s[right]!="#":
                 right+=1
             
@@ -20,5 +21,4 @@ class Solution:
             right=left+length
             res.append(s[left:right])
             left=right
-        
         return res
