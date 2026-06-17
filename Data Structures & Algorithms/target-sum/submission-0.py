@@ -1,19 +1,12 @@
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        ways=0
-
         def dfs(i, suma):
-            nonlocal ways
-            if i==len(nums) and suma==target:
-                ways+=1
-                return 
             if i==len(nums):
-                return
+                return 1 if suma==target else 0
             
-            dfs(i+1, suma+nums[i])
-            dfs(i+1, suma-nums[i])
+            addition=dfs(i+1, suma+nums[i])
+            substract=dfs(i+1, suma-nums[i])
+
+            return addition+substract
         
-
-
-        dfs(0,0)
-        return ways
+        return dfs(0,0)
