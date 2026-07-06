@@ -9,11 +9,12 @@ class Solution:
                 if board[r][c]==".":
                     continue
                 
-                if board[r][c] in rows[r] or board[r][c] in cols[c] or board[r][c] in squares[(r//3, c//3)]:
+                val=board[r][c]
+
+                if val in rows[r] or val in cols[c] or val in squares[(r//3, c//3)]:
                     return False
                 
-                rows[r].add(board[r][c])
-                cols[c].add(board[r][c])
-                squares[(r//3, c//3)].add(board[r][c])
-        
+                rows[r].add(val)
+                cols[c].add(val)
+                squares[(r//3, c//3)].add(val)
         return True
