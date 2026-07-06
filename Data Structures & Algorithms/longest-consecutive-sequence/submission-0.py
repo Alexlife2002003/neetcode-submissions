@@ -4,9 +4,9 @@ class Solution:
         seen=set(nums)
         for num in nums:
             cur=num
-            longest=0
+            cur_length=0
             while cur in seen:
                 cur+=1
-                longest+=1
-            res=max(longest, res)
+                cur_length+=1
+            res=max(res, cur_length)
         return res
